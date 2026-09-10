@@ -41,13 +41,18 @@ settings:
 
 targets:
 
-  # ─── iOS App ───────────────────────────────────────────────────
+  # ─── iOS App ─────────────────────────────────────────────────
   Quill:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     sources:
       - path: Quill
+      - path: SharedInboxBridge.swift
+    dependencies:
+      - target: QuillShare
+        embed: true
+        codeSign: true
     info:
       path: Quill/Info.plist
       properties:
@@ -90,13 +95,50 @@ targets:
         com.apple.security.application-groups:
           - group.app.quill.shared
 
-  # ─── macOS App ─────────────────────────────────────────────────
+  # ─── iOS Share Extension ───────────────────────────────────
+  QuillShare:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: QuillShare
+      - path: SharedInboxBridge.swift
+    info:
+      path: QuillShare/Info.plist
+      properties:
+        CFBundleDisplayName: Quill
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleDevelopmentRegion: en
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        NSExtension:
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsWebURLWithMaxCount: 1
+              NSExtensionActivationSupportsWebPageWithMaxCount: 1
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.quill.ios.share
+        CODE_SIGN_ENTITLEMENTS: QuillShare/QuillShare.entitlements
+        SKIP_INSTALL: YES
+    entitlements:
+      path: QuillShare/QuillShare.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.app.quill.shared
+
+  # ─── macOS App ─────────────────────────────────────────────
   QuillMac:
     type: application
     platform: macOS
     deploymentTarget: "14.0"
     sources:
       - path: Quill
+      - path: SharedInboxBridge.swift
     info:
       path: QuillMac/Info.plist
       properties:
@@ -135,7 +177,7 @@ targets:
         com.apple.security.files.bookmarks.app-scope: true
         com.apple.security.network.client: true
 
-  # ─── UI Tests ──────────────────────────────────────────────────
+  # ─── UI Tests ──────────────────────────────────────────────
   QuillUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -154,6 +196,7 @@ schemes:
     build:
       targets:
         Quill: all
+        QuillShare: all
     run:
       config: Debug
     test:

@@ -29,7 +29,7 @@ struct LibraryView: View {
                 } else {
                     ForEach(Array(filtered.enumerated()), id: \.element.id) { idx, article in
                         NavigationLink {
-                            ReaderView(articleID: article.id)
+                            ReaderView(article: article)
                         } label: {
                             ArticleSummaryRow(article: article)
                                 .qlCard()
@@ -65,34 +65,5 @@ struct LibraryView: View {
         }
         .padding(QL.Spacing.sm)
         .background(RoundedRectangle(cornerRadius: QL.Radius.md).fill(QL.Palette.surfaceHigh))
-    }
-}
-
-private struct ArticleSummaryRow: View {
-    let article: Article
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(article.title)
-                .font(QL.Typography.cardTitle)
-                .foregroundStyle(QL.Palette.textStrong)
-                .lineLimit(2)
-            HStack(spacing: QL.Spacing.xs) {
-                Image(systemName: QL.Icon.bookmark).font(.caption2)
-                Text(article.siteName.isEmpty ? article.url : article.siteName)
-                    .font(.caption)
-                    .foregroundStyle(QL.Palette.textMuted)
-                    .lineLimit(1)
-                    .truncationMode(.middle)
-            }
-            if !article.summary.isEmpty {
-                Text(article.summary)
-                    .font(.caption)
-                    .foregroundStyle(QL.Palette.textTertiary)
-                    .lineLimit(2)
-            }
-        }
-        .padding(QL.Spacing.sm)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentShape(Rectangle())
     }
 }
