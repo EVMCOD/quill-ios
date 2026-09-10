@@ -1,0 +1,83 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AppName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Quill" } }
+      }
+    },
+    "Tab.Inbox" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Inbox" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Bandeja" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Boîte de réception" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Posteingang" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Posta in arrivo" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Caixa de entrada" } }
+      }
+    },
+    "Tab.Library" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Library" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Biblioteca" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Bibliothèque" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Bibliothek" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Biblioteca" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Biblioteca" } }
+      }
+    },
+    "Tab.Highlights" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Highlights" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Subrayados" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Surlignements" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Markierungen" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Evidenziazioni" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Destaques" } }
+      }
+    },
+    "Tab.Settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Réglages" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Einstellungen" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Impostazioni" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+      }
+    },
+    "Onboarding.SaveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save anything" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Guarda lo que quieras" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Sauvegardez tout" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Speichere alles" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Salva tutto" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Salve qualquer coisa" } }
+      }
+    },
+    "Onboarding.SyncTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sync with Obsidian" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Sincroniza con Obsidian" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Synchronisation avec Obsidian" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Sync mit Obsidian" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Sincronizza con Obsidian" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sincronize com Obsidian" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

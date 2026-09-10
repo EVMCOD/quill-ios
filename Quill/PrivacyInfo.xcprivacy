@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSPrivacyTracking</key>
+    <false/>
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <!-- Disk space — needed to choose where Obsidian vault goes + capacity for md files. -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPIDiskSpace</string>
+            <key>NSPrivacyAccessedAPIReasons</key>
+            <array>
+                <string>E174.1</string>
+            </array>
+        </dict>
+        <!-- User defaults — onboarding flag + theme via AppStorage. -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPIUserDefaults</string>
+            <key>NSPrivacyAccessedAPIReasons</key>
+            <array>
+                <string>CA1007</string>
+            </array>
+        </dict>
+        <!-- File timestamp — vault file timestamps for sync-diff. -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPIFileTimestamp</string>
+            <key>NSPrivacyAccessedAPIReasons</key>
+            <array>
+                <string>C617.1</string>
+            </array>
+        </dict>
+        <!-- Network for the URL metadata fetch (article title, summary, og:image). -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPIUserDefaults</string>
+            <key>NSPrivacyAccessedAPIReasons</key>
+            <array>
+                <string>CA1007</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>
