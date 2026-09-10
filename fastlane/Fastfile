@@ -1,0 +1,193 @@
+default_platform(:ios)
+
+# ─────────────────────────────────────────────────────────────────────
+# iOS App
+# ─────────────────────────────────────────────────────────────────────
+platform :ios do
+  before_all do
+    setup_ci if ENV["CI"]
+  end
+
+  desc "Verify clean build + run UI tests (iOS)"
+  lane :test do
+    scan(
+      project: "Quill.xcodeproj",
+      scheme: "Quill",
+      destination: "platform=iOS Simulator,name=iPhone 17 Pro",
+      derived_data_path: "./build/derived",
+      output_directory: "./build/test_output",
+      clean: true
+    )
+  end
+
+  desc "Archive for App Store distribution (iOS)"
+  lane :archive do
+    sync_code_signing(
+      type: "app-store",
+      app_identifier: "app.quill.ios",
+      readonly: false
+    )
+    gym(
+      project: "Quill.xcodeproj",
+      scheme: "Quill",
+      configuration: "Release",
+      output_directory: "./build",
+      output_name: "Quill.ipa",
+      archive_path: "./build/Quill.xcarchive",
+      export_method: "app-store",
+      include_symbols: false,
+      clean: true
+    )
+  end
+
+  desc "Capture App Store screenshots (iOS)"
+  lane :screenshots do
+    capture_screenshots(
+      project: "Quill.xcodeproj",
+      scheme: "Quill",
+      output_directory: "./build/screenshots",
+      output_simulator_dir: "./build/screenshots/sim",
+      clear_previous_screenshots: true,
+      override_status_bar: true,
+      devices: ["iPhone 17 Pro", "iPhone Air"],
+      languages: ["en-US", "es-ES", "fr-FR", "de-DE", "it-IT", "pt-BR"]
+    )
+  end
+
+  desc "Upload to App Store Connect (iOS, no submit)"
+  lane :upload do
+    deliver(
+      app_identifier: "app.quill.ios",
+      username: ENV["APPLE_ID_FOR_QUILL"] || "valerosenrique@gmail.com",
+      team_id: "KADHS6P8PY",
+      ipa: "./build/Quill.ipa",
+      metadata_path: "./metadata",
+      screenshots_path: "./build/screenshots",
+      skip_binary_upload: false,
+      skip_screenshots: false,
+      skip_metadata: false,
+      skip_app_version_update: false,
+      submit_for_review: false,
+      automatic_release: false,
+      precheck_include_in_app_purchases: false,
+      clean_screenshots: true,
+      force: true,
+      run_precheck_before_submit: true,
+      reject_if_possible: true
+    )
+  end
+
+  desc "Full ship lane: test → archive → screenshots → upload"
+  lane :ship do
+    test
+    archive
+    screenshots
+    upload
+  end
+
+  desc "Register bundle ID + App Group (one-time)"
+  lane :register do
+    produce(
+      app_identifier: "app.quill.ios",
+      app_name: "Quill",
+      language: "en-US",
+      enable_services: { app_group: :on }
+    )
+  end
+
+  error do |lane, exception|
+    UI.error("iOS lane #{lane} failed: #{exception.message}")
+  end
+end
+
+# ─────────────────────────────────────────────────────────────────────
+# macOS App
+# ─────────────────────────────────────────────────────────────────────
+platform :mac do
+  before_all do
+    setup_ci if ENV["CI"]
+  end
+
+  desc "Verify clean build (macOS)"
+  lane :test do
+    build_mac_app(
+      project: "Quill.xcodeproj",
+      scheme: "QuillMac",
+      configuration: "Debug",
+      skip_codesigning: true,
+      skip_archive: true,
+      skip_package_pkg: true,
+      output_directory: "./build/mac-debug"
+    )
+  end
+
+  desc "Archive for App Store distribution (macOS, produces .pkg)"
+  lane :archive do
+    sync_code_signing(
+      type: "app-store",
+      app_identifier: "app.quill.macos",
+      readonly: false
+    )
+    gym(
+      project: "Quill.xcodeproj",
+      scheme: "QuillMac",
+      configuration: "Release",
+      output_directory: "./build/mac",
+      output_name: "QuillMac.pkg",
+      archive_path: "./build/QuillMac.xcarchive",
+      export_method: "app-store",
+      include_symbols: false,
+      clean: true
+    )
+  end
+
+  desc "Capture App Store screenshots (macOS)"
+  lane :screenshots do
+    sh("bash ./scripts/mac-screenshot.sh")
+  end
+
+  desc "Upload to App Store Connect (macOS, no submit)"
+  lane :upload do
+    deliver(
+      app_identifier: "app.quill.macos",
+      username: ENV["APPLE_ID_FOR_QUILL"] || "valerosenrique@gmail.com",
+      team_id: "KADHS6P8PY",
+      pkg: "./build/mac/QuillMac.pkg",
+      metadata_path: "./metadata",
+      screenshots_path: "./build/screenshots/mac",
+      skip_binary_upload: false,
+      skip_screenshots: false,
+      skip_metadata: false,
+      skip_app_version_update: false,
+      submit_for_review: false,
+      automatic_release: false,
+      precheck_include_in_app_purchases: false,
+      clean_screenshots: true,
+      force: true,
+      run_precheck_before_submit: true,
+      reject_if_possible: true
+    )
+  end
+
+  desc "Full ship lane: test → archive → screenshots → upload"
+  lane :ship do
+    test
+    archive
+    screenshots
+    upload
+  end
+
+  desc "Register macOS bundle ID + App Group (one-time)"
+  lane :register do
+    produce(
+      app_identifier: "app.quill.macos",
+      app_name: "Quill for Mac",
+      language: "en-US",
+      enable_services: { app_group: :on }
+    )
+  end
+
+  error do |lane, exception|
+    UI.error("macOS lane #{lane} failed: #{exception.message}")
+  end
+end

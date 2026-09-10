@@ -1,0 +1,15 @@
+---
+test_target_name: Quill
+workspace: Quill.xcodeproj
+scheme: Quill
+devices:
+  - iPhone 17 Pro
+  - iPhone Air
+languages:
+  - en-US
+  - es-ES
+  - fr-FR
+  - de-DE
+  - it-IT
+  - pt-BR
+---

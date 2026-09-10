@@ -1,0 +1,17 @@
+v1.0 — Lançamento inicial
+
+Um app de leitura posterior e destaques para iPhone, iPad e Mac com sincronização bidirecional com Obsidian e captura pela barra de menus no Mac.
+
+O que tem dentro:
+- Capture URLs de qualquer app, folha de compartilhamento, ou barra de menus (⌘N no Mac)
+- Destaques por artigo com notas de uma linha
+- Vistas Caixa · Biblioteca · Destaques
+- Contador de sequência de leitura
+- Tema claro / escuro / sistema
+- Seis idiomas: inglês, espanhol, francês, alemão, italiano, português do Brasil
+
+Sincronização com Obsidian:
+- `quill/articles/<slug>-<id>.md` — um arquivo por artigo com frontmatter
+- `quill/index.md` — sua fila de leitura
+- Os destaques viram blocos `> ` com notas opcionais
+- Seletor de cofre com bookmark seguro

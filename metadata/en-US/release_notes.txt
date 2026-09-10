@@ -1,0 +1,17 @@
+v1.0 — Initial release
+
+A read-later and highlights app for iPhone, iPad, and Mac with bidirectional Obsidian sync and macOS menu-bar capture.
+
+What's inside:
+- Capture URLs from any app, share sheet, or the menubar (⌘N on Mac)
+- Per-article highlights with one-line notes
+- Inbox · Library · Highlights views
+- Reading streak counter
+- Light / Dark / system theme picker
+- Six locales: English, Spanish, French, German, Italian, Brazilian Portuguese
+
+Obsidian sync:
+- `quill/articles/<slug>-<id>.md` — one file per article with YAML frontmatter
+- `quill/index.md` — your reading queue
+- Highlights become `> ` quote blocks with optional notes
+- Folder picker with security-scoped bookmark

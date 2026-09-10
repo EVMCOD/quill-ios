@@ -1,0 +1,17 @@
+v1.0 — Erstveröffentlichung
+
+Eine Read-Later- und Markierungs-App für iPhone, iPad und Mac mit bidirektionaler Obsidian-Synchronisation und Erfassung aus der Mac-Menüleiste.
+
+Was drin ist:
+- URLs aus jeder App, dem Teilen-Menü oder der Menüleiste erfassen (⌘N auf Mac)
+- Markierungen pro Artikel mit einzeiligen Notizen
+- Ansichten Posteingang · Bibliothek · Markierungen
+- Leseserie-Zähler
+- Helle / dunkle / System-Theme
+- Sechs Sprachen: Englisch, Spanisch, Französisch, Deutsch, Italienisch, brasilianisches Portugiesisch
+
+Obsidian-Synchronisation:
+- `quill/articles/<slug>-<id>.md` – eine Datei pro Artikel mit Frontmatter
+- `quill/index.md` – deine Leseschlange
+- Markierungen werden zu `> `-Zitatblöcken mit optionalen Notizen
+- Vault-Auswahl mit sicherem Lesezeichen

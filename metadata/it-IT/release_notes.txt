@@ -1,0 +1,17 @@
+v1.0 — Primo rilascio
+
+Un'app di lettura differita ed evidenziazioni per iPhone, iPad e Mac con sincronizzazione bidirezionale con Obsidian e cattura dalla barra dei menu su Mac.
+
+Cosa c'è dentro:
+- Cattura URL da qualsiasi app, foglio di condivisione, o barra dei menu (⌘N su Mac)
+- Evidenziazioni per articolo con note di una riga
+- Viste Posta · Biblioteca · Evidenziazioni
+- Contatore di serie di lettura
+- Tema chiaro / scuro / sistema
+- Sei lingue: inglese, spagnolo, francese, tedesco, italiano, portoghese brasiliano
+
+Sincronizzazione Obsidian:
+- `quill/articles/<slug>-<id>.md` — un file per articolo con frontmatter
+- `quill/index.md` — la tua coda di lettura
+- Le evidenziazioni diventano blocchi `> ` con note opzionali
+- Selettore del vault con segnalibro di sicurezza

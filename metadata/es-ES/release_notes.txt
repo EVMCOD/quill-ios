@@ -1,0 +1,17 @@
+v1.0 — Lanzamiento inicial
+
+Una app de lectura posterior y subrayados para iPhone, iPad y Mac con sincronización bidireccional con Obsidian y captura desde la barra de menús de Mac.
+
+Qué hay dentro:
+- Captura URLs desde cualquier app, hoja de compartir, o la barra de menús (⌘N en Mac)
+- Subrayados por artículo con notas de una línea
+- Vistas Bandeja · Biblioteca · Subrayados
+- Contador de racha de lectura
+- Tema claro / oscuro / sistema
+- Seis idiomas: inglés, español, francés, alemán, italiano, portugués de Brasil
+
+Sincronización con Obsidian:
+- `quill/articles/<slug>-<id>.md` — un fichero por artículo con frontmatter
+- `quill/index.md` — tu cola de lectura
+- Los subrayados se convierten en citas `> ` con notas opcionales
+- Selector de vault con bookmark de seguridad

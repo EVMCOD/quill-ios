@@ -1,0 +1,26 @@
+Quill es una app de lectura posterior enfocada y adaptativa para iPhone, iPad y Mac. Captura lo que quieras leer luego, guarda los pasajes que importan y sincroniza limpio con tu vault de Obsidian.
+
+CAPTURA RÁPIDO
+Pega una URL, comparte desde Safari o usa la barra de menús en Mac. Quill descarga el título, el resumen y el nombre del sitio por ti.
+
+SUBRAYA LO QUE IMPORTA
+Guarda pasajes con una línea de nota. Quill los etiqueta con la URL original para que siempre sepas de dónde salieron.
+
+BANDEJA · BIBLIOTECA · SUBRAYADOS
+Tres vistas: la cola para lo que no has leído, la biblioteca para lo que ya leíste, y Subrayados para las frases que marcaste.
+
+OBSIDIAN, NADA MÁS
+Elige tu vault. Quill escribe un fichero markdown limpio por artículo bajo `quill/articles/`, con frontmatter en YAML. Tus subrayados se convierten en citas `> ` que puedes leer en cualquier visor markdown. Un `quill/index.md` diario mantiene la cola consultable desde tu vault.
+
+DETALLES DE DISEÑO
+- Seis idiomas: inglés, español, francés, alemán, italiano, portugués de Brasil
+- Tema claro / oscuro / sistema
+- Shell adaptativo: pestañas en iPhone, split en iPad, ítem nativo en la barra de menús de Mac
+- Contador de racha de lectura — gamificación que no estorba
+
+DISEÑADO PARA LECTORES EXIGENTES
+- 100% offline, sin tracking, sin anuncios, sin servidor
+- Construido con SwiftUI nativo y SwiftData
+- Sync vía iCloud preparado para v1.1
+
+Quill es para lectores con segundo cerebro. Si escribes notas en Obsidian, este es tu inbox.

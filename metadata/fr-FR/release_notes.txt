@@ -1,0 +1,17 @@
+v1.0 — Sortie initiale
+
+Une application de lecture différée et de surlignements pour iPhone, iPad et Mac avec synchronisation bidirectionnelle Obsidian et capture depuis la barre de menus Mac.
+
+Au programme :
+- Capturez des URL depuis n'importe quelle app, la feuille de partage, ou la barre de menus (⌘N sur Mac)
+- Surlignements par article avec notes d'une ligne
+- Vues Boîte de réception · Bibliothèque · Surlignements
+- Compteur de série de lecture
+- Thème clair / sombre / système
+- Six langues : anglais, espagnol, français, allemand, italien, portugais brésilien
+
+Synchronisation Obsidian :
+- `quill/articles/<slug>-<id>.md` — un fichier par article avec frontmatter
+- `quill/index.md` — votre file de lecture
+- Les surlignements deviennent des blocs `> ` avec notes optionnelles
+- Sélecteur de coffre avec signet sécurisé
